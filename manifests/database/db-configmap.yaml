@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-secret-credentials
+  labels:
+    app: db
+data:
+  POSTGRES_DB: transcendance_prod
+  POSTGRES_USER: username
+  POSTGRES_PASSWORD: password

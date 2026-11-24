@@ -18,4 +18,15 @@ spec:
       - name: db
         image:  postgres:18-alpine
         ports:
-        - containerPort: 8080
+        - containerPort: 5432
+        envFrom:
+          - configMapRef:
+              name: db-secret-credentials
+        volumeMounts:
+          - mountPath: /var/lib/postgres/data
+            name: db-data
+
+      volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: db-persistent-volume-claim
