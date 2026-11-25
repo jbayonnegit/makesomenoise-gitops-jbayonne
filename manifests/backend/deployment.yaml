@@ -45,3 +45,13 @@ spec:
                 key: MEDIA_ROOT
         ports:
         - containerPort: 8080
+        volumeMounts:
+          - mountPath: /var/www/media/
+            name: media-data
+            type: DirectoryOrCreate
+
+      volumes:
+        - name: media-data
+          persistentVolumeClaim:
+            claimName: media-persistent-volume-claim
+
