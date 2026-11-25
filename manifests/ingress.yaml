@@ -16,3 +16,23 @@ spec:
                 name: frontend
                 port:
                   number: 80
+    - host: makesomenoise.com
+      http:
+        paths:
+          - path: /api/
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 80
+    - host: makesomenoise.com
+      http:
+        paths:
+          - path: /studio/
+            pathType: Prefix
+            backend:
+              service:
+                name: studio
+                port:
+                  number: 80
